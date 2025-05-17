@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вхід в систему</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+<div class="login-wrapper">
+    <div class="login-container">
+        <div class="login-header">
+            <img src="/static/css/images/railway-icon.png" alt="Логотип залізниці" class="logo">
+            <h1>Вхід в систему</h1>
+            <p>Управління залізничною станцією</p>
+        </div>
+
+        <form th:action="@{/login}" method="post" class="login-form">
+            <div class="form-group">
+                <label for="username">
+                    <i class="fas fa-user"></i>
+                </label>
+                <input type="text" id="username" name="username" placeholder="Ім'я користувача" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">
+                    <i class="fas fa-lock"></i>
+                </label>
+                <input type="password" id="password" name="password" placeholder="Пароль" required>
+            </div>
+
+            <button type="submit" class="btn-login">
+                <i class="fas fa-sign-in-alt"></i> Увійти
+            </button>
+
+            <div th:if="${param.error}" class="error-message">
+                <i class="fas fa-exclamation-circle"></i> Невірний логін або пароль
+            </div>
+
+            <div th:if="${param.logout}" class="success-message">
+                <i class="fas fa-check-circle"></i> Ви успішно вийшли з системи
+            </div>
+        </form>
+
+        <div class="login-footer">
+            <p>Залізнична станція © 2023</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
