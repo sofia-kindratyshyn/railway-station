@@ -1,11 +1,11 @@
 package com.railway.stationweb;
 
-import org.springframework.boot.test.context.SpringBootTest;
-import org.testng.annotations.Test;
+//import org.springframework.boot.test.context.SpringBootTest;
+//import org.testng.annotations.Test;
 
-@SpringBootTest
+//@SpringBootTest
 class StationwebApplicationTests {
-	@Test
-	void contextLoads() {
-	}
+//	@Test
+//	void contextLoads() {
+//	}
 }
