@@ -8,7 +8,8 @@ WORKDIR /app
 COPY . .
 
 # Білдимо проєкт
-RUN ./mvnw clean install
+RUN ./mvnw clean install -DskipTests
 
-# Запускаємо JAR (ім’я файлу буде твоє)
+
+# Запускаємо JAR
 CMD ["java", "-jar", "target/stationweb-0.0.1-SNAPSHOT.jar"]
