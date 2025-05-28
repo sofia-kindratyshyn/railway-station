@@ -58,6 +58,14 @@ public class TrainController {
         return "train";
     }
 
+    @GetMapping("/refresh")
+    public String refreshTrains(RedirectAttributes redirectAttributes) {
+        redirectAttributes.addAttribute("successMessage", "Список успішно оновлений");
+        return "redirect:/trains";
+    }
+
+
+
     @GetMapping("/search-time")
     public String searchByTime(@RequestParam String time, Model model) {
         List<Train> trains = trainService.findByTime(time);
@@ -66,18 +74,17 @@ public class TrainController {
         return "train";
     }
 
-    @GetMapping("/sort-by-time")
-    public String sortTrainsByTime(Model model,
-                                   @RequestParam(defaultValue = "asc") String order) {
-        List<Train> trains = trainService.getAllTrainsSortedByTime(order);
+    @GetMapping("/sort")
+    public String sortTrains(@RequestParam String order, Model model) {
+        List<Train> trains;
+        if (order.equals("asc")) {
+            trains = trainService.getTrainsSortedAsc();
+        } else {
+            trains = trainService.getTrainsSortedDesc();
+        }
         model.addAttribute("trains", trains);
         model.addAttribute("train", new Train());
         return "train";
     }
 
-    @GetMapping("/refresh")
-    public String refreshTrains(RedirectAttributes redirectAttributes) {
-        redirectAttributes.addAttribute("message", "Список поїздів оновлено");
-        return "redirect:/trains";
-    }
 }

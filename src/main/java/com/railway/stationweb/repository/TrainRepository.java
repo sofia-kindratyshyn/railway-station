@@ -10,4 +10,7 @@ public interface TrainRepository extends JpaRepository<Train, Long> {
     Optional<Train> findByTrainNumber(String trainNumber);
     List<Train> findByDestinationContainingIgnoreCase(String destination);
     List<Train> findByDepartureTime(String departureTime);
+    List<Train> findAllByOrderByDepartureTimeAsc();    // для "від раннього"
+    List<Train> findAllByOrderByDepartureTimeDesc();   // для "від пізнього"
+
 }

@@ -92,4 +92,4 @@ public class SecurityConfig {
                         .addResourceLocations("classpath:/static/");
             }
         };
-}}
+    }}

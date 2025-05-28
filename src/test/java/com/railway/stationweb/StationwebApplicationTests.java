@@ -1,13 +1,11 @@
-package com.railway;
+package com.railway.stationweb; // Зверніть увагу на пакет!
 
-import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.testng.annotations.Test;
 
 @SpringBootTest
 class StationwebApplicationTests {
-
 	@Test
 	void contextLoads() {
 	}
-
 }

@@ -25,10 +25,12 @@
     </form>
   </header>
 
-  <div th:if="${successMessage}" class="alert alert-success" th:text="${successMessage}"></div>
+  <div th:if="${successMessage}" class="alert success-message" th:text="${successMessage}"></div>
+
 
   <div class="action-buttons">
-    <a th:href="@{/trains/refresh}" class="btn btn-refresh">Оновити список</a>
+    <a th:href="@{/trains/refresh}" class="btn success-message">Оновити список</a>
+
   </div>
 
   <div class="card-container">
@@ -69,13 +71,14 @@
       </form>
     </div>
   </div>
+
   <div class="sort-options">
     <h3>Сортування за часом:</h3>
     <div class="sort-buttons">
-      <a th:href="@{/trains/sort-by-time(order='asc')}" class="btn btn-sort">
+      <a th:href="@{/trains/sort(order='asc')}" class="btn btn-sort">
         <i class="fas fa-arrow-up"></i> Від раннього
       </a>
-      <a th:href="@{/trains/sort-by-time(order='desc')}" class="btn btn-sort">
+      <a th:href="@{/trains/sort(order='desc')}" class="btn btn-sort">
         <i class="fas fa-arrow-down"></i> Від пізнього
       </a>
     </div>

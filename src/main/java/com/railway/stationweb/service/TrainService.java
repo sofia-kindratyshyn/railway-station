@@ -5,7 +5,6 @@ import com.railway.stationweb.repository.TrainRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalTime;
 import java.util.List;
 
 @Service
@@ -34,6 +33,7 @@ public class TrainService {
                 );
     }
 
+
     public boolean deleteTrain(String trainNumber) {
         return trainRepository.findByTrainNumber(trainNumber)
                 .map(train -> {
@@ -41,20 +41,6 @@ public class TrainService {
                     return true;
                 })
                 .orElse(false);
-    }
-
-    public List<Train> getAllTrainsSortedByTime(String order) {
-        List<Train> trains = trainRepository.findAll();
-
-        trains.sort((t1, t2) -> {
-            LocalTime time1 = LocalTime.parse(t1.getDepartureTime());
-            LocalTime time2 = LocalTime.parse(t2.getDepartureTime());
-            return order.equals("asc") ?
-                    time1.compareTo(time2) :
-                    time2.compareTo(time1);
-        });
-
-        return trains;
     }
 
     public List<Train> findByDestination(String destination) {
@@ -68,4 +54,13 @@ public class TrainService {
                 getAllTrains() :
                 trainRepository.findByDepartureTime(time);
     }
+
+    public List<Train> getTrainsSortedAsc() {
+        return trainRepository.findAllByOrderByDepartureTimeAsc();
+    }
+
+    public List<Train> getTrainsSortedDesc() {
+        return trainRepository.findAllByOrderByDepartureTimeDesc();
+    }
+
 }

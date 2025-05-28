@@ -8,6 +8,6 @@ public class AuthController {
 
     @GetMapping("/login")
     public String showLoginForm() {
-        return "login"; // Повертає шаблон login.html з templates/
+        return "login"; // Возвращает шаблон login.html из templates/
     }
 }
