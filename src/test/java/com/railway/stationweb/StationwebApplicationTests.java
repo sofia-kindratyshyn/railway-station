@@ -1,4 +1,4 @@
-package com.railway.stationweb; // Зверніть увагу на пакет!
+package com.railway.stationweb;
 
 import org.springframework.boot.test.context.SpringBootTest;
 import org.testng.annotations.Test;
